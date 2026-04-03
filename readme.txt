@@ -8,11 +8,11 @@ Stable tag: 0.3.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Show GLB and glTF models in WordPress with a simple block and a bundled viewer.
+Show interactive 3D models in WordPress with a simple block for GLB and glTF files.
 
 == Description ==
 
-Adds a block for `.glb` and `.gltf` files from the media library.
+Adds a block for interactive 3D models in `.glb` and `.gltf` format from the media library.
 
 Includes the `model-viewer` runtime locally:
 
@@ -35,7 +35,7 @@ The bundled file is kept versioned in the plugin and documented alongside the as
 
 = Which file formats are supported? =
 
-The block supports `.glb` and `.gltf`.
+The block supports 3D models in `.glb` and `.gltf`.
 
 = Can I enter an external model URL? =
 
