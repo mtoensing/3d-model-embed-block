@@ -1,6 +1,9 @@
 import { __ } from '@wordpress/i18n';
 import {
+	BlockControls,
 	InspectorControls,
+	MediaPlaceholder,
+	MediaReplaceFlow,
 	MediaUpload,
 	MediaUploadCheck,
 	useBlockProps,
@@ -10,7 +13,6 @@ import {
 	Button,
 	ColorPicker,
 	PanelBody,
-	Placeholder,
 	RangeControl,
 	TextControl,
 	ToggleControl,
@@ -21,6 +23,7 @@ import { syncModelViewerElement } from './model-viewer';
 import { attachModelViewerFeedback } from './viewer-feedback';
 
 const ALLOWED_MODEL_TYPES = [ 'model/gltf-binary', 'model/gltf+json' ];
+const ALLOWED_MODEL_FILE_INPUT = '.glb,.gltf,model/gltf-binary,model/gltf+json';
 
 function getFileExtension( value ) {
 	if ( ! value ) {
@@ -52,12 +55,47 @@ function showModelError() {
 	} );
 }
 
+function showModelUrlError() {
+	const message = __(
+		'Please enter a URL ending with .glb or .gltf.',
+		'minimal-3d-model-viewer-block'
+	);
+
+	dispatch( 'core/notices' ).createErrorNotice( message, {
+		type: 'snackbar',
+	} );
+}
+
 function renderButton( label, onClick, variant = 'primary' ) {
 	return (
 		<Button variant={ variant } onClick={ onClick }>
 			{ label }
 		</Button>
 	);
+}
+
+function getModelAttributes( media ) {
+	if ( ! isAllowedModelFile( media ) ) {
+		showModelError();
+		return null;
+	}
+
+	return {
+		modelId: media.id,
+		modelUrl: media.url || '',
+	};
+}
+
+function getModelUrlAttributes( url ) {
+	if ( ! url || ! isAllowedModelFile( { url } ) ) {
+		showModelUrlError();
+		return null;
+	}
+
+	return {
+		modelId: 0,
+		modelUrl: url,
+	};
 }
 
 function EditorModelViewerPreview( { attributes } ) {
@@ -88,48 +126,56 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 	const hasCameraControls = attributes.cameraControls !== false;
 	const hasAutoRotate = attributes.autoRotate !== false;
 	const backgroundColorControlId = `minimal-3d-model-viewer-background-color-${ clientId }`;
+	const onSelectModel = ( media ) => {
+		const nextAttributes = getModelAttributes( media );
+
+		if ( ! nextAttributes ) {
+			return;
+		}
+
+		setAttributes( nextAttributes );
+	};
+	const onResetModel = () => {
+		setAttributes( {
+			modelId: 0,
+			modelUrl: '',
+		} );
+	};
+	const onSelectModelURL = ( url ) => {
+		const nextAttributes = getModelUrlAttributes( url );
+
+		if ( ! nextAttributes ) {
+			return;
+		}
+
+		setAttributes( nextAttributes );
+	};
 
 	return (
 		<>
+			{ hasModel && (
+				<BlockControls group="other">
+					<MediaReplaceFlow
+						mediaId={ attributes.modelId }
+						mediaURL={ attributes.modelUrl }
+						allowedTypes={ ALLOWED_MODEL_TYPES }
+						accept={ ALLOWED_MODEL_FILE_INPUT }
+						name={ __(
+							'Replace model',
+							'minimal-3d-model-viewer-block'
+						) }
+						onSelect={ onSelectModel }
+						onSelectURL={ onSelectModelURL }
+						onReset={ onResetModel }
+					/>
+				</BlockControls>
+			) }
+
 			<InspectorControls>
 				<PanelBody
 					title={ __( '3D Model', 'minimal-3d-model-viewer-block' ) }
 					initialOpen
 				>
-					<MediaUploadCheck>
-						<MediaUpload
-							allowedTypes={ ALLOWED_MODEL_TYPES }
-							value={ attributes.modelId }
-							onSelect={ ( media ) => {
-								if ( ! isAllowedModelFile( media ) ) {
-									showModelError();
-									return;
-								}
-
-								setAttributes( {
-									modelId: media.id,
-									modelUrl: media.url || '',
-								} );
-							} }
-							render={ ( { open } ) =>
-								renderButton(
-									hasModel
-										? __(
-												'Replace model (.glb/.gltf)',
-												'minimal-3d-model-viewer-block'
-										  )
-										: __(
-												'Select model (.glb/.gltf)',
-												'minimal-3d-model-viewer-block'
-										  ),
-									open
-								)
-							}
-						/>
-					</MediaUploadCheck>
-
-					<div className="minimal-3d-model-viewer-block__spacer" />
-
 					<TextControl
 						label={ __( 'Alt text', 'minimal-3d-model-viewer-block' ) }
 						value={ attributes.alt || '' }
@@ -315,19 +361,25 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 				</figure>
 			) : (
 				<div { ...blockProps }>
-					<Placeholder
-						label={ __(
-							'Minimal 3D Model Viewer',
-							'minimal-3d-model-viewer-block'
-						) }
-					>
-						<p>
-							{ __(
-								'Select a 3D model from the Media Library.',
+					<MediaPlaceholder
+						accept={ ALLOWED_MODEL_FILE_INPUT }
+						allowedTypes={ ALLOWED_MODEL_TYPES }
+						disableMediaButtons={ false }
+						labels={ {
+							title: __(
+								'3D model',
 								'minimal-3d-model-viewer-block'
-							) }
-						</p>
-					</Placeholder>
+							),
+							instructions: __(
+								'Upload a .glb or .gltf file, choose one from the Media Library, or insert one from a URL.',
+								'minimal-3d-model-viewer-block'
+							),
+						} }
+						multiple={ false }
+						onSelect={ onSelectModel }
+						onSelectURL={ onSelectModelURL }
+						value={ attributes.modelId }
+					/>
 				</div>
 			) }
 		</>

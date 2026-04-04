@@ -1,6 +1,6 @@
 {
 	"name": "minimal-3d-model-viewer-block",
-	"version": "0.4.1",
+	"version": "0.4.2",
 	"author": "Marc Toensing",
 	"description": "Embeds GLB and glTF 3D models in WordPress with a minimal static block.",
 	"main": "build/index.js",

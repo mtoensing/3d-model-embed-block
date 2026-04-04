@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Minimal 3D Model Viewer Block
  * Description:       Embed GLB and glTF models in the block editor with a minimal, close-to-core Gutenberg block.
- * Version:           0.4.1
+ * Version:           0.4.2
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            Marc Toensing
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'MINIMAL_3D_MODEL_VIEWER_BLOCK_VERSION', '0.4.1' );
+define( 'MINIMAL_3D_MODEL_VIEWER_BLOCK_VERSION', '0.4.2' );
 define( 'MINIMAL_3D_MODEL_VIEWER_ELEMENT_VERSION', '4.2.0' );
 define(
 	'MINIMAL_3D_MODEL_VIEWER_ELEMENT_PATH',

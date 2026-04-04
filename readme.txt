@@ -4,7 +4,7 @@ Tags: 3d, glb, gltf, model-viewer, gutenberg
 Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,10 @@ The block supports 3D models in `.glb` and `.gltf`.
 No. Models are selected from the WordPress media library.
 
 == Changelog ==
+
+= 0.4.2 =
+* Move model selection into the block UI with upload, Media Library, and URL insert flows similar to core media blocks.
+* Fix block width handling so normal, wide, and full alignment follow WordPress layout standards in the editor and frontend.
 
 = 0.4.1 =
 * Hide the default `model-viewer` progress bar via its official `progress-bar` slot instead of styling around it.

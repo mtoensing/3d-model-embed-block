@@ -2,19 +2,15 @@
 	display: block;
 	box-sizing: border-box;
 	margin-block: 1.5rem;
-	margin-inline: 0;
 }
 
-.is-layout-flex > .wp-block-minimal-3d-model-viewer-block,
-.is-layout-grid > .wp-block-minimal-3d-model-viewer-block {
+.is-layout-flex
+	> .wp-block-minimal-3d-model-viewer-block:not(.alignwide):not(.alignfull),
+.is-layout-grid
+	> .wp-block-minimal-3d-model-viewer-block:not(.alignwide):not(.alignfull) {
 	width: 100%;
 	max-width: 100%;
 	flex-basis: 100%;
-}
-
-.wp-block-minimal-3d-model-viewer-block:not(.alignwide):not(.alignfull) {
-	width: 100%;
-	max-width: 100%;
 }
 
 .wp-block-minimal-3d-model-viewer-block__viewer {
