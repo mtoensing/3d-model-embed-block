@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Minimal 3D Model Viewer Block
- * Description:       Embed GLB and glTF models in the block editor with a minimal, close-to-core Gutenberg block.
+ * Plugin Name:       3D Model Embed Block
+ * Description:       Embed GLB and glTF models in the block editor with a simple Gutenberg block.
  * Version:           0.4.4
  * Requires at least: 6.5
  * Requires PHP:      7.4
@@ -9,32 +9,32 @@
  * Author URI:        https://marc.tv
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       minimal-3d-model-viewer-block
+ * Text Domain:       3d-model-embed-block
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'MINIMAL_3D_MODEL_VIEWER_BLOCK_VERSION', '0.4.4' );
-define( 'MINIMAL_3D_MODEL_VIEWER_ELEMENT_VERSION', '4.2.0' );
+define( 'MODEL_EMBED_3D_BLOCK_VERSION', '0.4.4' );
+define( 'MODEL_EMBED_3D_ELEMENT_VERSION', '4.2.0' );
 define(
-	'MINIMAL_3D_MODEL_VIEWER_ELEMENT_PATH',
+	'MODEL_EMBED_3D_ELEMENT_PATH',
 	'public/vendor/model-viewer/4.2.0/model-viewer-umd.min.js'
 );
 
 /**
  * Registers the web component and block metadata.
  */
-function minimal_3d_model_viewer_block_init() {
+function model_embed_3d_block_init() {
 	// Bundled vendor asset:
 	// @google/model-viewer@4.2.0
 	// dist/model-viewer-umd.min.js
 	wp_register_script(
-		'minimal-3d-model-viewer-element',
-		plugins_url( MINIMAL_3D_MODEL_VIEWER_ELEMENT_PATH, __FILE__ ),
+		'3d-model-embed-element',
+		plugins_url( MODEL_EMBED_3D_ELEMENT_PATH, __FILE__ ),
 		array(),
-		MINIMAL_3D_MODEL_VIEWER_ELEMENT_VERSION,
+		MODEL_EMBED_3D_ELEMENT_VERSION,
 		array(
 			'in_footer' => true,
 			'strategy'  => 'defer',
@@ -45,15 +45,15 @@ function minimal_3d_model_viewer_block_init() {
 		register_block_type( __DIR__ . '/build' );
 	}
 }
-add_action( 'init', 'minimal_3d_model_viewer_block_init' );
+add_action( 'init', 'model_embed_3d_block_init' );
 
 /**
  * Loads the web component inside the editor so server-side previews are interactive there too.
  */
-function minimal_3d_model_viewer_enqueue_editor_module() {
-	wp_enqueue_script( 'minimal-3d-model-viewer-element' );
+function model_embed_3d_block_enqueue_editor_module() {
+	wp_enqueue_script( '3d-model-embed-element' );
 }
-add_action( 'enqueue_block_editor_assets', 'minimal_3d_model_viewer_enqueue_editor_module' );
+add_action( 'enqueue_block_editor_assets', 'model_embed_3d_block_enqueue_editor_module' );
 
 /**
  * Allows GLB and glTF uploads in the media library.
@@ -61,13 +61,13 @@ add_action( 'enqueue_block_editor_assets', 'minimal_3d_model_viewer_enqueue_edit
  * @param array<string, string> $mimes Allowed mime types.
  * @return array<string, string>
  */
-function minimal_3d_model_viewer_upload_mimes( $mimes ) {
+function model_embed_3d_block_upload_mimes( $mimes ) {
 	$mimes['glb']  = 'model/gltf-binary';
 	$mimes['gltf'] = 'model/gltf+json';
 
 	return $mimes;
 }
-add_filter( 'upload_mimes', 'minimal_3d_model_viewer_upload_mimes' );
+add_filter( 'upload_mimes', 'model_embed_3d_block_upload_mimes' );
 
 /**
  * Keeps WordPress from second-guessing GLB and glTF uploads when fileinfo is generic.
@@ -77,7 +77,7 @@ add_filter( 'upload_mimes', 'minimal_3d_model_viewer_upload_mimes' );
  * @param string               $filename Uploaded filename.
  * @return array<string, mixed>
  */
-function minimal_3d_model_viewer_check_filetype_and_ext( $data, $file, $filename ) {
+function model_embed_3d_block_check_filetype_and_ext( $data, $file, $filename ) {
 	$extension = strtolower( pathinfo( $filename, PATHINFO_EXTENSION ) );
 
 	if ( 'glb' === $extension && ( empty( $data['ext'] ) || empty( $data['type'] ) ) ) {
@@ -94,4 +94,4 @@ function minimal_3d_model_viewer_check_filetype_and_ext( $data, $file, $filename
 
 	return $data;
 }
-add_filter( 'wp_check_filetype_and_ext', 'minimal_3d_model_viewer_check_filetype_and_ext', 10, 3 );
+add_filter( 'wp_check_filetype_and_ext', 'model_embed_3d_block_check_filetype_and_ext', 10, 3 );

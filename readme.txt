@@ -1,4 +1,4 @@
-=== Minimal 3D Model Viewer Block ===
+=== 3D Model Embed Block ===
 Contributors: mtoensing
 Tags: 3d, glb, gltf, model-viewer, gutenberg
 Requires at least: 6.5
@@ -30,7 +30,7 @@ The bundled file is kept versioned in the plugin and documented alongside the as
 
 1. Install and activate the plugin.
 2. Upload a `.glb` or `.gltf` file to the media library.
-3. Insert the `Minimal 3D Model Viewer` block and select the file.
+3. Insert the `3D Model Embed Block` block and select the file.
 
 == Frequently Asked Questions ==
 
@@ -63,7 +63,7 @@ Yes. Turn on `Zoom interaction` in the block sidebar to enable pinch zoom on tou
 * Hide the default `model-viewer` progress bar via its official `progress-bar` slot instead of styling around it.
 
 = 0.4.0 =
-* Rename the plugin, block, package, and local directory to `Minimal 3D Model Viewer Block`.
+* Rename the plugin, block, package, and local directory to `3D Model Embed Block`.
 * Keep the bundled `model-viewer` runtime on a versioned vendor path with documented provenance.
 
 = 0.3.6 =

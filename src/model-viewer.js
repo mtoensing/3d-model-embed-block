@@ -57,12 +57,12 @@ export function getModelViewerAttributes( attributes ) {
 	const autoRotate = attributes.autoRotate !== false && DEFAULT_AUTO_ROTATE;
 
 	const props = {
-		class: 'wp-block-minimal-3d-model-viewer-block__viewer',
+		class: 'wp-block-model-embed-3d-block__viewer',
 		src: attributes.modelUrl || undefined,
 		loading: 'lazy',
 		alt: attributes.alt || undefined,
 		poster: attributes.posterUrl || undefined,
-		style: `--minimal-3d-model-viewer-height:${ height }px;--minimal-3d-model-viewer-background:${
+		style: `--model-embed-3d-height:${ height }px;--model-embed-3d-background:${
 			transparentBackground ? 'transparent' : backgroundColor
 		};`,
 		'camera-orbit': `0deg ${ FIXED_POLAR_ANGLE } ${ cameraDistance }%`,

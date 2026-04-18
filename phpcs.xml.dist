@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Minimal 3D Model Viewer Block Standards">
+<ruleset name="3D Model Embed Block Standards">
 	<arg name="extensions" value="php" />
 	<arg name="colors" />
 	<arg value="s" />

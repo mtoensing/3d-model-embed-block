@@ -1,11 +1,11 @@
 import { __ } from '@wordpress/i18n';
 
-const STATUS_CLASS = 'wp-block-minimal-3d-model-viewer-block__status';
-const ERROR_CLASS = 'wp-block-minimal-3d-model-viewer-block--has-error';
+const STATUS_CLASS = 'wp-block-model-embed-3d-block__status';
+const ERROR_CLASS = 'wp-block-model-embed-3d-block--has-error';
 
 function getContainer( modelViewer ) {
 	return (
-		modelViewer?.closest( '.wp-block-minimal-3d-model-viewer-block' ) ||
+		modelViewer?.closest( '.wp-block-model-embed-3d-block' ) ||
 		modelViewer?.parentElement ||
 		null
 	);
@@ -17,13 +17,13 @@ function getErrorMessage( modelViewer ) {
 	if ( src.endsWith( '.gltf' ) ) {
 		return __(
 			'This 3D model could not be loaded. glTF files need all referenced .bin and texture files, or a self-contained .glb instead.',
-			'minimal-3d-model-viewer-block'
+			'3d-model-embed-block'
 		);
 	}
 
 	return __(
 		'This 3D model could not be loaded. Please check the file and try again.',
-		'minimal-3d-model-viewer-block'
+		'3d-model-embed-block'
 	);
 }
 

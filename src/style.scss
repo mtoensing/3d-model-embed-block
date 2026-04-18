@@ -1,37 +1,33 @@
-.wp-block-minimal-3d-model-viewer-block {
+.wp-block-model-embed-3d-block {
 	display: block;
 	box-sizing: border-box;
 	margin-block: 1.5rem;
 }
 
-.is-layout-flex
-	> .wp-block-minimal-3d-model-viewer-block:not(.alignwide):not(.alignfull),
-.is-layout-grid
-	> .wp-block-minimal-3d-model-viewer-block:not(.alignwide):not(.alignfull) {
+.is-layout-flex > .wp-block-model-embed-3d-block:not(.alignwide):not(.alignfull),
+.is-layout-grid > .wp-block-model-embed-3d-block:not(.alignwide):not(.alignfull) {
 	width: 100%;
 	max-width: 100%;
 	flex-basis: 100%;
 }
 
-.wp-block-minimal-3d-model-viewer-block__viewer {
+.wp-block-model-embed-3d-block__viewer {
 	display: block;
 	width: 100%;
-	height: var(--minimal-3d-model-viewer-height, 520px);
-	background: var(--minimal-3d-model-viewer-background, transparent);
+	height: var(--model-embed-3d-height, 520px);
+	background: var(--model-embed-3d-background, transparent);
 	border-radius: 18px;
 	overflow: hidden;
 }
 
 @media (max-width: 600px) {
-	.wp-block-minimal-3d-model-viewer-block__viewer {
-		height: min(
-			var(--minimal-3d-model-viewer-height, 520px),
-			max(200px, 56vw)
-		);
+
+	.wp-block-model-embed-3d-block__viewer {
+		height: min(var(--model-embed-3d-height, 520px), max(200px, 56vw));
 	}
 }
 
-.wp-block-minimal-3d-model-viewer-block__empty {
+.wp-block-model-embed-3d-block__empty {
 	padding: 1rem 1.125rem;
 	border: 1px dashed rgba(27, 31, 35, 0.18);
 	border-radius: 14px;

@@ -47,7 +47,7 @@ function isAllowedModelFile( media ) {
 function showModelError() {
 	const message = __(
 		'Please select only files with the .glb or .gltf extension.',
-		'minimal-3d-model-viewer-block'
+		'3d-model-embed-block'
 	);
 
 	dispatch( 'core/notices' ).createErrorNotice( message, {
@@ -58,7 +58,7 @@ function showModelError() {
 function showModelUrlError() {
 	const message = __(
 		'Please enter a URL ending with .glb or .gltf.',
-		'minimal-3d-model-viewer-block'
+		'3d-model-embed-block'
 	);
 
 	dispatch( 'core/notices' ).createErrorNotice( message, {
@@ -113,7 +113,7 @@ function EditorModelViewerPreview( { attributes } ) {
 		<model-viewer
 			ref={ modelViewerRef }
 			data-editor-preview="true"
-			class="wp-block-minimal-3d-model-viewer-block__viewer"
+			class="wp-block-model-embed-3d-block__viewer"
 		>
 			<div slot="progress-bar" aria-hidden="true" />
 		</model-viewer>
@@ -126,7 +126,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 	const hasCameraControls = attributes.cameraControls !== false;
 	const hasZoomEnabled = attributes.zoomEnabled === true;
 	const hasAutoRotate = attributes.autoRotate !== false;
-	const backgroundColorControlId = `minimal-3d-model-viewer-background-color-${ clientId }`;
+	const backgroundColorControlId = `3d-model-embed-block-background-color-${ clientId }`;
 	const onSelectModel = ( media ) => {
 		const nextAttributes = getModelAttributes( media );
 
@@ -161,10 +161,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						mediaURL={ attributes.modelUrl }
 						allowedTypes={ ALLOWED_MODEL_TYPES }
 						accept={ ALLOWED_MODEL_FILE_INPUT }
-						name={ __(
-							'Replace model',
-							'minimal-3d-model-viewer-block'
-						) }
+						name={ __( 'Replace model', '3d-model-embed-block' ) }
 						onSelect={ onSelectModel }
 						onSelectURL={ onSelectModelURL }
 						onReset={ onResetModel }
@@ -174,21 +171,18 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( '3D Model', 'minimal-3d-model-viewer-block' ) }
+					title={ __( '3D Model', '3d-model-embed-block' ) }
 					initialOpen
 				>
 					<TextControl
-						label={ __(
-							'Alt text',
-							'minimal-3d-model-viewer-block'
-						) }
+						label={ __( 'Alt text', '3d-model-embed-block' ) }
 						value={ attributes.alt || '' }
 						onChange={ ( value ) =>
 							setAttributes( { alt: value } )
 						}
 						help={ __(
 							'Leave empty if the model is purely decorative.',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 					/>
 
@@ -207,11 +201,11 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 									attributes.posterUrl
 										? __(
 												'Replace poster',
-												'minimal-3d-model-viewer-block'
+												'3d-model-embed-block'
 										  )
 										: __(
 												'Select poster',
-												'minimal-3d-model-viewer-block'
+												'3d-model-embed-block'
 										  ),
 									open,
 									'secondary'
@@ -227,22 +221,19 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 								setAttributes( { posterId: 0, posterUrl: '' } )
 							}
 						>
-							{ __(
-								'Remove poster',
-								'minimal-3d-model-viewer-block'
-							) }
+							{ __( 'Remove poster', '3d-model-embed-block' ) }
 						</Button>
 					) }
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Display', 'minimal-3d-model-viewer-block' ) }
+					title={ __( 'Display', '3d-model-embed-block' ) }
 					initialOpen
 				>
 					<RangeControl
 						label={ __(
 							'Height in pixels',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 						value={ attributes.height ?? 520 }
 						min={ 260 }
@@ -254,10 +245,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 					/>
 
 					<RangeControl
-						label={ __(
-							'Framing',
-							'minimal-3d-model-viewer-block'
-						) }
+						label={ __( 'Framing', '3d-model-embed-block' ) }
 						value={ attributes.cameraDistance ?? 105 }
 						min={ 60 }
 						max={ 140 }
@@ -269,14 +257,14 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Lower values bring the camera closer. Uses model-viewer camera-orbit radius.',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 					/>
 
 					<ToggleControl
 						label={ __(
 							'Interactive mode',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 						checked={ hasCameraControls }
 						onChange={ ( value ) =>
@@ -284,14 +272,14 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Allows horizontal rotation with mouse or touch. Zoom can be enabled separately below; pan and axis changes stay disabled.',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 					/>
 
 					<ToggleControl
 						label={ __(
 							'Zoom interaction',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 						checked={ hasZoomEnabled }
 						onChange={ ( value ) =>
@@ -299,31 +287,25 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Enables pinch zoom on touch devices and mouse-wheel zoom on desktop. model-viewer exposes both together.',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 						disabled={ ! hasCameraControls }
 					/>
 
 					<ToggleControl
-						label={ __(
-							'Auto rotate',
-							'minimal-3d-model-viewer-block'
-						) }
+						label={ __( 'Auto rotate', '3d-model-embed-block' ) }
 						checked={ hasAutoRotate }
 						onChange={ ( value ) =>
 							setAttributes( { autoRotate: value } )
 						}
 						help={ __(
 							'Off = manual horizontal rotation only.',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 					/>
 
 					<RangeControl
-						label={ __(
-							'Rotation speed',
-							'minimal-3d-model-viewer-block'
-						) }
+						label={ __( 'Rotation speed', '3d-model-embed-block' ) }
 						value={ attributes.rotationPerSecond ?? 30 }
 						min={ 1 }
 						max={ 120 }
@@ -333,16 +315,13 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Degrees per second for auto-rotation.',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 						disabled={ ! hasAutoRotate }
 					/>
 
 					<RangeControl
-						label={ __(
-							'Start angle',
-							'minimal-3d-model-viewer-block'
-						) }
+						label={ __( 'Start angle', '3d-model-embed-block' ) }
 						value={ attributes.startAngle ?? 0 }
 						min={ -180 }
 						max={ 180 }
@@ -352,14 +331,14 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Rotates the model around the vertical axis on load.',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 					/>
 
 					<ToggleControl
 						label={ __(
 							'Transparent background',
-							'minimal-3d-model-viewer-block'
+							'3d-model-embed-block'
 						) }
 						checked={ attributes.transparentBackground !== false }
 						onChange={ ( value ) =>
@@ -372,11 +351,11 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 							id={ backgroundColorControlId }
 							label={ __(
 								'Background color',
-								'minimal-3d-model-viewer-block'
+								'3d-model-embed-block'
 							) }
 							help={ __(
 								'Used only when transparent background is disabled.',
-								'minimal-3d-model-viewer-block'
+								'3d-model-embed-block'
 							) }
 						>
 							<ColorPicker
@@ -406,13 +385,10 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						allowedTypes={ ALLOWED_MODEL_TYPES }
 						disableMediaButtons={ false }
 						labels={ {
-							title: __(
-								'3D model',
-								'minimal-3d-model-viewer-block'
-							),
+							title: __( '3D model', '3d-model-embed-block' ),
 							instructions: __(
 								'Upload a .glb or .gltf file, choose one from the Media Library, or insert one from a URL.',
-								'minimal-3d-model-viewer-block'
+								'3d-model-embed-block'
 							),
 						} }
 						multiple={ false }
