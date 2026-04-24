@@ -47,7 +47,7 @@ function isAllowedModelFile( media ) {
 function showModelError() {
 	const message = __(
 		'Please select only files with the .glb or .gltf extension.',
-		'3d-model-embed-block'
+		'marctv-3d-model-embed-block'
 	);
 
 	dispatch( 'core/notices' ).createErrorNotice( message, {
@@ -58,7 +58,7 @@ function showModelError() {
 function showModelUrlError() {
 	const message = __(
 		'Please enter a URL ending with .glb or .gltf.',
-		'3d-model-embed-block'
+		'marctv-3d-model-embed-block'
 	);
 
 	dispatch( 'core/notices' ).createErrorNotice( message, {
@@ -161,7 +161,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						mediaURL={ attributes.modelUrl }
 						allowedTypes={ ALLOWED_MODEL_TYPES }
 						accept={ ALLOWED_MODEL_FILE_INPUT }
-						name={ __( 'Replace model', '3d-model-embed-block' ) }
+						name={ __( 'Replace model', 'marctv-3d-model-embed-block' ) }
 						onSelect={ onSelectModel }
 						onSelectURL={ onSelectModelURL }
 						onReset={ onResetModel }
@@ -171,18 +171,18 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( '3D Model', '3d-model-embed-block' ) }
+					title={ __( '3D Model', 'marctv-3d-model-embed-block' ) }
 					initialOpen
 				>
 					<TextControl
-						label={ __( 'Alt text', '3d-model-embed-block' ) }
+						label={ __( 'Alt text', 'marctv-3d-model-embed-block' ) }
 						value={ attributes.alt || '' }
 						onChange={ ( value ) =>
 							setAttributes( { alt: value } )
 						}
 						help={ __(
 							'Leave empty if the model is purely decorative.',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 					/>
 
@@ -201,11 +201,11 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 									attributes.posterUrl
 										? __(
 												'Replace poster',
-												'3d-model-embed-block'
+												'marctv-3d-model-embed-block'
 										  )
 										: __(
 												'Select poster',
-												'3d-model-embed-block'
+												'marctv-3d-model-embed-block'
 										  ),
 									open,
 									'secondary'
@@ -221,19 +221,19 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 								setAttributes( { posterId: 0, posterUrl: '' } )
 							}
 						>
-							{ __( 'Remove poster', '3d-model-embed-block' ) }
+							{ __( 'Remove poster', 'marctv-3d-model-embed-block' ) }
 						</Button>
 					) }
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Display', '3d-model-embed-block' ) }
+					title={ __( 'Display', 'marctv-3d-model-embed-block' ) }
 					initialOpen
 				>
 					<RangeControl
 						label={ __(
 							'Height in pixels',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 						value={ attributes.height ?? 520 }
 						min={ 260 }
@@ -245,7 +245,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 					/>
 
 					<RangeControl
-						label={ __( 'Framing', '3d-model-embed-block' ) }
+						label={ __( 'Framing', 'marctv-3d-model-embed-block' ) }
 						value={ attributes.cameraDistance ?? 105 }
 						min={ 60 }
 						max={ 140 }
@@ -257,14 +257,14 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Lower values bring the camera closer. Uses model-viewer camera-orbit radius.',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 					/>
 
 					<ToggleControl
 						label={ __(
 							'Interactive mode',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 						checked={ hasCameraControls }
 						onChange={ ( value ) =>
@@ -272,14 +272,14 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Allows horizontal rotation with mouse or touch. Zoom can be enabled separately below; pan and axis changes stay disabled.',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 					/>
 
 					<ToggleControl
 						label={ __(
 							'Zoom interaction',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 						checked={ hasZoomEnabled }
 						onChange={ ( value ) =>
@@ -287,25 +287,25 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Enables pinch zoom on touch devices and mouse-wheel zoom on desktop. model-viewer exposes both together.',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 						disabled={ ! hasCameraControls }
 					/>
 
 					<ToggleControl
-						label={ __( 'Auto rotate', '3d-model-embed-block' ) }
+						label={ __( 'Auto rotate', 'marctv-3d-model-embed-block' ) }
 						checked={ hasAutoRotate }
 						onChange={ ( value ) =>
 							setAttributes( { autoRotate: value } )
 						}
 						help={ __(
 							'Off = manual horizontal rotation only.',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 					/>
 
 					<RangeControl
-						label={ __( 'Rotation speed', '3d-model-embed-block' ) }
+						label={ __( 'Rotation speed', 'marctv-3d-model-embed-block' ) }
 						value={ attributes.rotationPerSecond ?? 30 }
 						min={ 1 }
 						max={ 120 }
@@ -315,13 +315,13 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Degrees per second for auto-rotation.',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 						disabled={ ! hasAutoRotate }
 					/>
 
 					<RangeControl
-						label={ __( 'Start angle', '3d-model-embed-block' ) }
+						label={ __( 'Start angle', 'marctv-3d-model-embed-block' ) }
 						value={ attributes.startAngle ?? 0 }
 						min={ -180 }
 						max={ 180 }
@@ -331,14 +331,14 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						}
 						help={ __(
 							'Rotates the model around the vertical axis on load.',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 					/>
 
 					<ToggleControl
 						label={ __(
 							'Transparent background',
-							'3d-model-embed-block'
+							'marctv-3d-model-embed-block'
 						) }
 						checked={ attributes.transparentBackground !== false }
 						onChange={ ( value ) =>
@@ -351,11 +351,11 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 							id={ backgroundColorControlId }
 							label={ __(
 								'Background color',
-								'3d-model-embed-block'
+								'marctv-3d-model-embed-block'
 							) }
 							help={ __(
 								'Used only when transparent background is disabled.',
-								'3d-model-embed-block'
+								'marctv-3d-model-embed-block'
 							) }
 						>
 							<ColorPicker
@@ -385,10 +385,10 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 						allowedTypes={ ALLOWED_MODEL_TYPES }
 						disableMediaButtons={ false }
 						labels={ {
-							title: __( '3D model', '3d-model-embed-block' ),
+							title: __( '3D model', 'marctv-3d-model-embed-block' ),
 							instructions: __(
 								'Upload a .glb or .gltf file, choose one from the Media Library, or insert one from a URL.',
-								'3d-model-embed-block'
+								'marctv-3d-model-embed-block'
 							),
 						} }
 						multiple={ false }

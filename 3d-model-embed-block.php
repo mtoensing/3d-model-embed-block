@@ -9,7 +9,7 @@
  * Author URI:        https://marc.tv
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       3d-model-embed-block
+ * Text Domain:       marctv-3d-model-embed-block
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

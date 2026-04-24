@@ -17,13 +17,13 @@ function getErrorMessage( modelViewer ) {
 	if ( src.endsWith( '.gltf' ) ) {
 		return __(
 			'This 3D model could not be loaded. glTF files need all referenced .bin and texture files, or a self-contained .glb instead.',
-			'3d-model-embed-block'
+			'marctv-3d-model-embed-block'
 		);
 	}
 
 	return __(
 		'This 3D model could not be loaded. Please check the file and try again.',
-		'3d-model-embed-block'
+		'marctv-3d-model-embed-block'
 	);
 }
 

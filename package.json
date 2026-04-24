@@ -1,5 +1,5 @@
 {
-	"name": "3d-model-embed-block",
+	"name": "marctv-3d-model-embed-block",
 	"version": "0.4.4",
 	"author": "Marc Toensing",
 	"description": "Embeds GLB and glTF 3D models in WordPress with a minimal static block.",
@@ -14,7 +14,7 @@
 		"up": "wp-scripts packages-update --dist-tag=wp-6.9",
 		"build": "wp-scripts build",
 		"start": "wp-scripts start",
-		"clean": "rm -rf build 3d-model-embed-block.zip",
+		"clean": "rm -rf build marctv-3d-model-embed-block.zip",
 		"dist": "npm run clean && npm run build",
 		"lint-js": "wp-scripts lint-js",
 		"lint-js:fix": "wp-scripts lint-js --fix",

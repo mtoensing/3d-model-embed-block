@@ -12,7 +12,7 @@
     "glb",
     "gltf"
   ],
-  "textdomain": "3d-model-embed-block",
+  "textdomain": "marctv-3d-model-embed-block",
   "attributes": {
     "modelUrl": {
       "type": "string",

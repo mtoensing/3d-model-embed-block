@@ -8,7 +8,7 @@
 	"icon": "format-image",
 	"description": "Embeds a GLB or glTF 3D model with interactive mouse and touch controls.",
 	"keywords": [ "3d", "glb", "gltf" ],
-	"textdomain": "3d-model-embed-block",
+	"textdomain": "marctv-3d-model-embed-block",
 	"attributes": {
 		"modelUrl": {
 			"type": "string",
