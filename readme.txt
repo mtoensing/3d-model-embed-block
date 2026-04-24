@@ -1,4 +1,4 @@
-=== 3D Model Embed Block ===
+=== MarcTV 3D Model Embed Block ===
 Contributors: MarcDK
 Tags: 3d, glb, gltf, model-viewer, gutenberg
 Requires at least: 6.5

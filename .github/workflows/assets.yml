@@ -21,4 +21,5 @@ jobs:
               env:
                   SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
                   SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+                  PLUGIN_SLUG: marctv-3d-model-embed-block
                   IGNORE_OTHER_FILES: true

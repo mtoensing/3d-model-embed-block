@@ -126,7 +126,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 	const hasCameraControls = attributes.cameraControls !== false;
 	const hasZoomEnabled = attributes.zoomEnabled === true;
 	const hasAutoRotate = attributes.autoRotate !== false;
-	const backgroundColorControlId = `3d-model-embed-block-background-color-${ clientId }`;
+	const backgroundColorControlId = `marctv-3d-model-embed-block-background-color-${ clientId }`;
 	const onSelectModel = ( media ) => {
 		const nextAttributes = getModelAttributes( media );
 
