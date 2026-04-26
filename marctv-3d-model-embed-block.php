@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       MarcTV 3D Model Embed Block
  * Description:       Embed GLB and glTF models in the block editor with a simple Gutenberg block.
- * Version:           0.4.4
+ * Version:           0.4.5
  * Requires at least: 6.5
  * Requires PHP:      7.4
  * Author:            Marc Toensing
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'MODEL_EMBED_3D_BLOCK_VERSION', '0.4.4' );
+define( 'MODEL_EMBED_3D_BLOCK_VERSION', '0.4.5' );
 define( 'MODEL_EMBED_3D_ELEMENT_VERSION', '4.2.0' );
 define(
 	'MODEL_EMBED_3D_ELEMENT_PATH',

@@ -1,6 +1,6 @@
 {
 	"name": "marctv-3d-model-embed-block",
-	"version": "0.4.4",
+	"version": "0.4.5",
 	"author": "Marc Toensing",
 	"description": "Embeds GLB and glTF 3D models in WordPress with a minimal static block.",
 	"main": "build/index.js",

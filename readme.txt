@@ -4,7 +4,7 @@ Tags: 3d, glb, gltf, model-viewer, gutenberg
 Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.4.4
+Stable tag: 0.4.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ Yes. Use the block's URL input to insert a `.glb` or `.gltf` file directly.
 Yes. Turn on `Zoom interaction` in the block sidebar to enable pinch zoom on touch devices and mouse-wheel zoom on desktop.
 
 == Changelog ==
+
+= 0.4.5 =
+* Maintenance release.
 
 = 0.4.4 =
 * Add a `Zoom interaction` toggle to enable zoom when needed while keeping the previous default interaction unchanged.
