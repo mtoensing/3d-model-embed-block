@@ -113,7 +113,7 @@ function EditorModelViewerPreview( { attributes } ) {
 		<model-viewer
 			ref={ modelViewerRef }
 			data-editor-preview="true"
-			class="wp-block-model-embed-3d-block__viewer"
+			class="wp-block-marctv-3d-model-embed-block-block__viewer"
 		>
 			<div slot="progress-bar" aria-hidden="true" />
 		</model-viewer>

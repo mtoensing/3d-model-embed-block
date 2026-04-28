@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "model-embed-3d/block",
-	"version": "0.4.4",
+	"name": "marctv-3d-model-embed-block/block",
+	"version": "1.0.0",
 	"title": "3D Model Embed Block",
 	"category": "media",
 	"icon": "format-image",
@@ -72,5 +72,5 @@
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "3d-model-embed-element"
+	"viewScript": "marctv-3d-model-embed-block-element"
 }

@@ -1,11 +1,11 @@
 import { __ } from '@wordpress/i18n';
 
-const STATUS_CLASS = 'wp-block-model-embed-3d-block__status';
-const ERROR_CLASS = 'wp-block-model-embed-3d-block--has-error';
+const STATUS_CLASS = 'wp-block-marctv-3d-model-embed-block-block__status';
+const ERROR_CLASS = 'wp-block-marctv-3d-model-embed-block-block--has-error';
 
 function getContainer( modelViewer ) {
 	return (
-		modelViewer?.closest( '.wp-block-model-embed-3d-block' ) ||
+		modelViewer?.closest( '.wp-block-marctv-3d-model-embed-block-block' ) ||
 		modelViewer?.parentElement ||
 		null
 	);

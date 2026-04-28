@@ -4,7 +4,7 @@ Tags: 3d, glb, gltf, model-viewer, gutenberg
 Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.4.5
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,15 @@ Includes the `model-viewer` runtime locally:
 
 The bundled file is kept versioned in the plugin and documented alongside the asset.
 
+== Source Code and Build Instructions ==
+
+The generated block assets in `build/` are compiled from the human-readable source files in the public development repository:
+
+* Repository: https://github.com/mtoensing/marctv-3d-model-embed-block
+* Block source: `src/`
+* Build tooling: `package.json`
+* Build command: `npm install` followed by `npm run build`
+
 == Installation ==
 
 1. Install and activate the plugin.
@@ -49,6 +58,11 @@ Yes. Use the block's URL input to insert a `.glb` or `.gltf` file directly.
 Yes. Turn on `Zoom interaction` in the block sidebar to enable pinch zoom on touch devices and mouse-wheel zoom on desktop.
 
 == Changelog ==
+
+= 1.0.0 =
+* Add polished WordPress.org icon and banner assets for the public plugin launch.
+* Use the plugin slug consistently for public PHP, block, script, CSS, and custom-property names.
+* Document source code and build instructions in the readme.
 
 = 0.4.5 =
 * Maintenance release.

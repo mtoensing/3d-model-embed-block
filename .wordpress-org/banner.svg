@@ -7,46 +7,67 @@
 	xmlns="http://www.w3.org/2000/svg"
 >
 	<defs>
-		<linearGradient id="bg" x1="0" y1="0" x2="1544" y2="500" gradientUnits="userSpaceOnUse">
-			<stop offset="0" stop-color="#3858E9" />
-			<stop offset="1" stop-color="#1D35B4" />
+		<linearGradient id="banner-bg" x1="0" y1="0" x2="1544" y2="500" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#4F6CF7" />
+			<stop offset="0.48" stop-color="#3858E9" />
+			<stop offset="1" stop-color="#172A8F" />
 		</linearGradient>
+		<radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1228 188) rotate(138) scale(516 364)">
+			<stop stop-color="#84DCC6" stop-opacity="0.42" />
+			<stop offset="1" stop-color="#84DCC6" stop-opacity="0" />
+		</radialGradient>
+		<linearGradient id="cube" x1="1084" y1="90" x2="1324" y2="354" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#FFFFFF" />
+			<stop offset="1" stop-color="#DDE6FF" />
+		</linearGradient>
+		<filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="170%">
+			<feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#071451" flood-opacity="0.28" />
+		</filter>
 	</defs>
 
-	<rect width="1544" height="500" rx="32" fill="url(#bg)" />
-	<rect x="92" y="90" width="320" height="320" rx="64" fill="rgba(255,255,255,0.08)" />
-
-	<g transform="translate(124 122) scale(0.5)">
-		<path d="M334 424C425 414 498 373 498 321C498 279 462 245 391 226" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
-		<path d="M111 235C65.6822 250.538 14 281.957 14 313.032C14 358.731 80.9915 397.118 169 409" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
-		<path d="M205 367L254 423L169 452Z" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
-		<path d="M256 52L386 127L256 202L126 127Z" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
-		<path d="M126 127V277L256 352L386 277V127" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
-		<path d="M256 202V352" stroke="#FFFFFF" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
+	<rect width="1544" height="500" rx="32" fill="url(#banner-bg)" />
+	<rect width="1544" height="500" rx="32" fill="url(#glow)" />
+	<path d="M1058 312C1077 251 1167 209 1278 209C1405 209 1508 260 1508 322C1508 383 1409 433 1284 435C1161 436 1037 381 1058 312Z" fill="#0A1647" opacity="0.16" />
+	<g stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+		<path d="M1403 390C1465 372 1508 340 1508 303C1508 246 1410 200 1289 200C1168 200 1070 246 1070 303C1070 359 1166 405 1284 406" />
+		<path d="M1262 374L1306 421L1228 448Z" fill="#3858E9" />
 	</g>
-
+	<g filter="url(#soft-shadow)" transform="translate(44 0)">
+		<path d="M1244 62L1386 144L1244 226L1102 144L1244 62Z" fill="url(#cube)" />
+		<path d="M1102 144L1244 226V390L1102 308V144Z" fill="#F9FBFF" />
+		<path d="M1386 144L1244 226V390L1386 308V144Z" fill="#E7EEFF" />
+		<path d="M1244 62L1386 144L1244 226L1102 144L1244 62Z" stroke="#FFFFFF" stroke-width="18" stroke-linejoin="round" />
+		<path d="M1102 144V308L1244 390M1386 144V308L1244 390V226" stroke="#FFFFFF" stroke-width="18" stroke-linejoin="round" />
+	</g>
 	<text
-		x="490"
-		y="220"
+		x="108"
+		y="132"
+		fill="#BFD0FF"
+		font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+		font-size="28"
+		font-weight="700"
+	>
+		MarcTV
+	</text>
+	<text
+		x="104"
+		y="213"
 		fill="#FFFFFF"
 		font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
 		font-size="76"
-		font-weight="700"
-		letter-spacing="-1"
+		font-weight="760"
 	>
 		3D Model Embed Block
 	</text>
-
 	<text
-		x="490"
-		y="292"
-		fill="rgba(255,255,255,0.88)"
+		x="108"
+		y="288"
+		fill="#EAF0FF"
 		font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
 		font-size="34"
-		font-weight="500"
+		font-weight="520"
 	>
-		GLB and glTF models for Gutenberg
+		Interactive GLB and glTF models for the WordPress block editor
 	</text>
-
-	<rect x="490" y="334" width="192" height="6" rx="3" fill="rgba(255,255,255,0.72)" />
+	<rect x="108" y="335" width="248" height="6" rx="3" fill="#84DCC6" opacity="0.92" />
 </svg>

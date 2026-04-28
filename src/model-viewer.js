@@ -57,12 +57,12 @@ export function getModelViewerAttributes( attributes ) {
 	const autoRotate = attributes.autoRotate !== false && DEFAULT_AUTO_ROTATE;
 
 	const props = {
-		class: 'wp-block-model-embed-3d-block__viewer',
+		class: 'wp-block-marctv-3d-model-embed-block-block__viewer',
 		src: attributes.modelUrl || undefined,
 		loading: 'lazy',
 		alt: attributes.alt || undefined,
 		poster: attributes.posterUrl || undefined,
-		style: `--model-embed-3d-height:${ height }px;--model-embed-3d-background:${
+		style: `--marctv-3d-model-embed-block-height:${ height }px;--marctv-3d-model-embed-block-background:${
 			transparentBackground ? 'transparent' : backgroundColor
 		};`,
 		'camera-orbit': `0deg ${ FIXED_POLAR_ANGLE } ${ cameraDistance }%`,
