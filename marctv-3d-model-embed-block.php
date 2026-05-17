@@ -48,12 +48,14 @@ function marctv_3d_model_embed_block_init() {
 add_action( 'init', 'marctv_3d_model_embed_block_init' );
 
 /**
- * Loads the web component inside the editor so server-side previews are interactive there too.
+ * Loads the web component inside the editor canvas so previews are interactive there too.
  */
-function marctv_3d_model_embed_block_enqueue_editor_module() {
-	wp_enqueue_script( 'marctv-3d-model-embed-block-element' );
+function marctv_3d_model_embed_block_enqueue_editor_canvas_assets() {
+	if ( is_admin() ) {
+		wp_enqueue_script( 'marctv-3d-model-embed-block-element' );
+	}
 }
-add_action( 'enqueue_block_editor_assets', 'marctv_3d_model_embed_block_enqueue_editor_module' );
+add_action( 'enqueue_block_assets', 'marctv_3d_model_embed_block_enqueue_editor_canvas_assets' );
 
 /**
  * Allows GLB and glTF uploads in the media library.
